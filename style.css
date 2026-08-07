@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #1c1c1e;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.calculator {
+  background: #000;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.display {
+  background: #1c1c1e;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  text-align: right;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.previous-operand {
+  color: #8e8e93;
+  font-size: 18px;
+  font-weight: 300;
+  min-height: 22px;
+}
+
+.current-operand {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 300;
+  word-break: break-all;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  border: none;
+  outline: none;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+/* Number buttons */
+button[data-number] {
+  background: #333;
+  color: #fff;
+}
+
+button[data-number]:hover {
+  background: #444;
+}
+
+button[data-number]:active {
+  transform: scale(0.92);
+}
+
+/* Operator buttons (+, -, *, /, =) */
+.operator {
+  background: #ff9f0a;
+  color: #fff;
+}
+
+.operator:hover {
+  background: #ffb340;
+}
+
+.operator:active {
+  transform: scale(0.92);
+}
+
+/* AC and DEL buttons */
+button[data-action="clear"],
+button[data-action="delete"] {
+  background: #a5a5a5;
+  color: #000;
+}
+
+button[data-action="clear"]:hover,
+button[data-action="delete"]:hover {
+  background: #d1d1d1;
+}
+
+/* Span two columns (AC and =) */
+.span-two {
+  border-radius: 32px;
+  grid-column: span 2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .calculator {
+    padding: 16px;
+  }
+  
+  button {
+    height: 56px;
+    font-size: 22px;
+  }
+  
+  .current-operand {
+    font-size: 36px;
+  }
+}
